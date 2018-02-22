@@ -36,6 +36,11 @@ namespace wServer.networking.handlers
                     }
                 }
 
+                 if (client.Character.MagicPoints < 0)
+                {
+                    client.Disconnect();
+                }
+
                 if (client.Player.SlotTypes[stype] != item.SlotType && client.Account.Rank < 2)
                 {
                     log.FatalFormat("{0} is trying to cheat (Weapon doesnt match the slot type)", client.Player.Name);
